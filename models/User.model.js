@@ -5,10 +5,13 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    //required: [true, 'Username is required.']
+    required: [true, 'Username is required.'],
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please add a valid email'],
   },
-  password: String,
-  //required: [true, 'Password is required.']
+  password: {
+    type: String,
+    required: [true, 'Password is required.']
+  }
 });
 
 const User = model("User", userSchema);

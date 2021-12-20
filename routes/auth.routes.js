@@ -8,8 +8,12 @@ router.get('/sign-up', (req, res)=>{
     res.render('auth/sing-up')
 })
 
-router.get('/userProfile', (req, res)=>{
-  res.render('users/user-profile')
+router.get('/profile/:id', (req, res)=>{
+  const {id} = req.params;
+  User.findById(id)
+  .then (user=>{
+    res.render('auth/profile')
+  })
 });
 
 router.post('/sing-up', (req, res, next)=>{
