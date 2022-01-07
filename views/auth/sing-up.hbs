@@ -3,15 +3,18 @@
   <form action="/sign-up" method="POST">
  
     <label> Username
-      <input type="text" name="username" placeholder="ironhacker" />
+      <input type="text" name="username" placeholder="username" />
     </label>
  
     <label> Password
-      <input type="password" name="password" placeholder="********" />
+      <input type="password" name="password" placeholder="password" />
     </label>
  
     <button type="submit">Create account</button>
 
     {{!-- error message will be added here --}}
+     {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
   </form>
 </div>
